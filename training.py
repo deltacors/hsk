@@ -15,13 +15,27 @@ def loop_random_key(words_in_progress):
 # ask te user the pinyin and the hanzi
 def ask_value(word):
 	print('What\'s the Pinyin and the hanzi for "' + str(word) + '" ?')
-	answer = input('Press any key to know the result or "exit" to quit...')
+	answer = input('Press any key to know the result or "exit" to quit the training.')
 	if answer != None and answer != "exit":
 		print('The pinyin and the hanzi for "' + str(word) + '" are ' + str(words_in_progress[word]) + '\n')
-		remove_key(word)
+		check_value(word)
 		loop_random_key(words_in_progress)
 	else:
 		exit(0)
+
+# check value
+def check_value(word):
+	check = input('Was it correct? [Y/N] ')
+	if check != None:
+		check = str(check.upper())
+		if check == 'Y':
+			print('Nice shot!')
+			remove_key(word)
+		elif check == 'N':
+			print('Don\'t worry, you\'ll do better next time.')
+		else:
+			print('Please type \'Y\' or \'N\' to check your answer!')
+			check_value(word)
 
 # remove from new dictionary a word already asked
 def remove_key(word):
