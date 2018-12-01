@@ -29,10 +29,10 @@ def check_value(word):
 	if check != None:
 		check = str(check.upper())
 		if check == 'Y':
-			print('Nice shot!')
+			print('Nice shot!', '\n')
 			remove_key(word)
 		elif check == 'N':
-			print('Don\'t worry, you\'ll do better next time.')
+			print('Don\'t worry, you\'ll do better next time.', '\n')
 		else:
 			print('Please type \'Y\' or \'N\' to check your answer!')
 			check_value(word)
