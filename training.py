@@ -2,7 +2,10 @@ import random
 from wordbase import words
 
 # create a copy to test your skills
-words_in_progress = dict(words)  
+words_in_progress = dict(words) 
+
+# words to study in deep
+words_to_study_in_deep = {} 
 
 # loop through the new dictionary of words
 def loop_random_key(words_in_progress):
@@ -11,6 +14,10 @@ def loop_random_key(words_in_progress):
 		ask_value(word)
 	else:
 		print('Congratulations! You have finished you wordbase.')
+		print('Take some time to study in deep the following words: ', '\n')
+		for w in words_to_study_in_deep:
+			print(w, ': ', words_to_study_in_deep[w])
+
 
 # ask te user the pinyin and the hanzi
 def ask_value(word):
@@ -33,6 +40,8 @@ def check_value(word):
 			remove_key(word)
 		elif check == 'N':
 			print('Don\'t worry, you\'ll do better next time.', '\n')
+			words_to_study_in_deep[word] = words_in_progress[word]
+			remove_key(word)
 		else:
 			print('Please type \'Y\' or \'N\' to check your answer!')
 			check_value(word)
