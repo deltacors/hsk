@@ -12,7 +12,7 @@ words = {
 	'otto' : 'ba1 / 八',
 	'nove' : 'jiu3 / 九',
 	'dieci' : 'shi2 / 十',
-	lesson 1
+	#lesson 1
 	'non (negazione)' : 'bu4 ／ 不',
 	'grande' : 'da4 ／ 大',
 	'forza' : 'li4 ／ 力',
