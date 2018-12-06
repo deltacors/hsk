@@ -9,7 +9,7 @@ words_to_study_in_deep = {}
 
 # count the lessons available
 def lessons_available(wordbase):
-	return len(wordbase) - 1
+	return len(wordbase)
 
 # select the level of the test
 def select_level(wordbase):
@@ -23,14 +23,13 @@ def select_level(wordbase):
 		except ValueError:
 		    print('You must insert a number between 1 and ' + str(lessons_available(wordbase)) + '!')
 		    select_level(wordbase)
+		prepare_wordbase(level)
 
-		# prepare the new wordbase
-		for l in range(1, level + 1):
-			words_in_progress = dict(wordbase['lesson_' + str(l)])
-
-		for w in words_in_progress:
-			print(w)
-
+# prepare the new wordbase
+def prepare_wordbase(level):
+	for l in range(1, level + 1):
+		words_in_progress.update(wordbase['lesson_' + str(l)])
+	return words_in_progress
 
 # loop through the new dictionary of words
 def loop_random_key(words_in_progress):
@@ -38,12 +37,9 @@ def loop_random_key(words_in_progress):
 		word = random.choice(list(words_in_progress))
 		ask_value(word)
 	else:
-		print('Congratulations! You have finished you wordbase.')
-		print('Take some time to study in deep the following words: ', '\n')
-		for w in words_to_study_in_deep:
-			print(w, ': ', words_to_study_in_deep[w])
-
-
+		print('Congratulations! You have finished you wordbase. Good job!')
+		check_words_to_study_in_deep(words_to_study_in_deep)
+		
 # ask te user the pinyin and the hanzi
 def ask_value(word):
 	print('What\'s the Pinyin and the hanzi for "' + str(word) + '" ?')
@@ -78,6 +74,13 @@ def remove_key(word):
 # add word to the "words to study in deep" dictionary
 def add_words_to_study_in_deep(word):
 	words_to_study_in_deep[word] = words_in_progress[word]
+
+# check if there are "words to study in deep"
+def check_words_to_study_in_deep(words_to_study_in_deep):
+	if bool(words_to_study_in_deep):
+		print('Take some time to study in deep the following words: ', '\n')
+		for w in words_to_study_in_deep:
+			print(w, ': ', words_to_study_in_deep[w])
 
 # start here!
 if __name__ == '__main__':

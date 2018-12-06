@@ -1,19 +1,19 @@
 # list of words to test
 wordbase = {
 	# numbers
-	"lesson_0" : {
-		'zero' : 'ling2 / 零',
-		'uno' : 'yi1 ／ 一',
-		'due' : 'er4 / 二',
-		'tre' : 'san1 / 三',
-		'quattro' : 'si4 / 四',
-		'cinque' : 'wu3 / 五',
-		'sei' : 'liu4 / 六',
-		'sette' : 'qi1 / 七',
-		'otto' : 'ba1 / 八',
-		'nove' : 'jiu3 / 九',
-		'dieci' : 'shi2 / 十'
-	},
+	# "lesson_0" : {
+	# 	'zero' : 'ling2 / 零',
+	# 	'uno' : 'yi1 ／ 一',
+	# 	'due' : 'er4 / 二',
+	# 	'tre' : 'san1 / 三',
+	# 	'quattro' : 'si4 / 四',
+	# 	'cinque' : 'wu3 / 五',
+	# 	'sei' : 'liu4 / 六',
+	# 	'sette' : 'qi1 / 七',
+	# 	'otto' : 'ba1 / 八',
+	# 	'nove' : 'jiu3 / 九',
+	# 	'dieci' : 'shi2 / 十'
+	# },
 	#lesson 1
 	"lesson_1" : {
 		'non (negazione)' : 'bu4 ／ 不',
