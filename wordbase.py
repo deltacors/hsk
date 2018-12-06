@@ -38,7 +38,7 @@ wordbase = {
 		'sei' : 'liu4 / 六',
 		'sette' : 'qi1 / 七',
 		'nove' : 'jiu3 / 九',
-		'dieci' : 'shi2 / 十'
+		'dieci' : 'shi2 / 十',
 		'tranquillo, silenzioso' : 'an1jing4 ／ 安静',
 		'mangiare' : 'chi1 ／ 吃',
 		'insegnante, professore o maestro' : 'lao3shi1 ／ 老师',
