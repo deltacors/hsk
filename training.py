@@ -75,18 +75,42 @@ def remove_key(word):
 def add_words_to_study_in_deep(word):
 	words_to_study_in_deep[word] = words_in_progress[word]
 
-# check if there are "words to study in deep"
+# check if there are "words to study in deep" in the end of the lesson
 def check_words_to_study_in_deep(words_to_study_in_deep):
 	if bool(words_to_study_in_deep):
 		print('Take some time to study in deep the following words: ', '\n')
 		for w in words_to_study_in_deep:
 			print(w, ': ', words_to_study_in_deep[w])
+		save_words_to_study_in_deep(words_to_study_in_deep)
+
+# save the "words to study in deep" into a file
+def save_words_to_study_in_deep(words_to_study_in_deep):
+	check = input('Do you want to save these words? [Y/N] ')
+	if check != None:
+		check = str(check.upper())
+		if check == 'Y':
+			file = open('study_in_deep.py', 'w')
+			file.write(str(words_to_study_in_deep))
+			file.close()
+			print('File saved!', '\n')
+		elif check == 'N':
+			print('File not saved!', '\n')
+		else:
+			print('Please type \'Y\' or \'N\'!')
+			save_words_to_study_in_deep(words_to_study_in_deep)
+
+# check if there are "words to study in deep" in the beginning of the lesson
+def check_words_to_study_in_deep_file(words_to_study_in_deep):
+	pass
 
 # start here!
 if __name__ == '__main__':
 	print('*' * 30, '\n')
-	print('Test your chinese skils!')
+	print('Test your chinese skills!')
 	print('Take pencil and paper and write down the corrispondent pinyin / hanzi value.', '\n')
 	print('*' * 30, '\n')
+	# check_words_to_study_in_deep_file(words_to_study_in_deep)
+	# if yes, words_to_study_in_deep = file
+	# if no , select_level(wordbase)
 	select_level(wordbase)
 	loop_random_key(words_in_progress)
