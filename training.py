@@ -1,4 +1,6 @@
 import random
+import time
+from datetime import timedelta
 from wordbase import wordbase
 
 # create a copy of the wordbase
@@ -6,6 +8,21 @@ words_in_progress = {}
 
 # words to study in deep
 words_to_study_in_deep = {} 
+
+# start time 
+def start_time():
+	start = time.time()
+	return start
+
+# stop time 
+def stop_time():
+	end = time.time()
+	return end
+
+# calculate delta
+def delta_time(start, end):
+	delta = str(timedelta(seconds = int(end - start)))
+	return delta
 
 # check if there are "words to study in deep" in the beginning of the lesson
 def check_words_to_study_in_deep_file():
@@ -27,13 +44,14 @@ def check_words_to_study_in_deep_file():
 
 # select the level of the test
 def select_level(wordbase):
+	level = 0
 	check = input('Until what lesson do you want to test your knowledge? Insert a number between 1 and ' + str(len(wordbase)) + '!')
 	if check != None:
 		try:
-   			level = int(check)
-	   		if level < 1 or level > len(wordbase):
-	   			print('You must insert a number between 1 and ' + str(len(wordbase)) + '!')
-	   			select_level(wordbase)
+			level = int(check)
+			if level < 1 or level > len(wordbase):
+				print('You must insert a number between 1 and ' + str(len(wordbase)) + '!')
+				select_level(wordbase)
 		except ValueError:
 		    print('You must insert a number between 1 and ' + str(len(wordbase)) + '!')
 		    select_level(wordbase)
@@ -48,7 +66,8 @@ def loop_random_key(words_in_progress):
 		word = random.choice(list(words_in_progress))
 		ask_value(word)
 	else:
-		print('Congratulations! You have finished your training. Good job!')
+		stop_time()
+		print('Congratulations! You have finished your training in ' + delta_time(start, stop_time()) +  '. Good job!')
 		check_words_to_study_in_deep(words_to_study_in_deep)
 		
 # ask te user the pinyin and the hanzi
@@ -120,4 +139,5 @@ if __name__ == '__main__':
 	print('Take pencil and paper and write down the corrispondent pinyin / hanzi value.', '\n')
 	print('*' * 30, '\n')
 	words_in_progress = check_words_to_study_in_deep_file()
+	start = start_time()
 	loop_random_key(words_in_progress)
