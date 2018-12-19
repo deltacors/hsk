@@ -148,6 +148,30 @@ wordbase = {
 		'dialetto di Shanghai' : 'Shang4hai3hua4 ／ 上海话',
 		'dialetto di Wenzhou' : 'Wen1zhou1hua4 ／ 温州话',
 		'televisione' : 'dian4shi4 ／ 电视'
+	},
+	# lesson 9
+	"lesson_9" : {
+		'dizionario' : 'ci2dian3 / 词典',
+		'tornare' : 'hui2 / 回',
+		'casa, famiglia' : 'jia1 / 家',
+		'oggi' : 'jin1tian1 / 今天',
+		'comprare' : 'mai3 / 买',
+		'domani' : 'ming2tian1 / 明天',
+		'maschile' : 'nan2 / 男',
+		'andare' : 'qu4 / 去',
+		'libreria' : 'shu1dian4 / 书店',
+		'sera' : 'wan3shang / 晚上',
+		'andar bene' : 'xing2 / 行',
+		'insieme' : 'yi4qi3 / 一起',
+		'noi (include parlante e interlocutore)' : 'zan2men / 咱们',
+		'lingua Cinese (in senso esteso)' : 'zhong1wen2 / 中文',
+		'cosa, oggetto' : 'dong1xi / 东西',
+		'venire' : 'lai2 / 来',
+		'negozio' : 'shang1dian4 / 商店',
+		'mattina' : 'shang4wu3 / 上午',
+		'pomeriggio' : 'xia4wu3 / 下午',
+		'mattina presto (fino alle 08:00)' : 'zao3shang4 / 早上',
+		'ore intorno a mezzogiorno' : 'zhong1wu3 / 中午'
 	}
 
 }
