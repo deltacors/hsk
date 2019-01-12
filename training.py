@@ -72,7 +72,7 @@ def loop_random_key(words_in_progress):
 		
 # ask te user the pinyin and the hanzi
 def ask_value(word):
-	print('Scrivi il pinyin e l\'hanzi che corrispondono alla parola ' + str(word) + '" ?')
+	print('Scrivi il pinyin e l\'hanzi che corrispondono alla parola "' + str(word) + '" ?')
 	answer = input('Premi un qualsiasi tasto per vedere la soluzione o "exit" per uscire.')
 	if answer != None and answer != "exit":
 		print('Il risultato per "' + str(word) + '" é ' + str(words_in_progress[word]) + '\n')
