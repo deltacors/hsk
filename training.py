@@ -29,14 +29,14 @@ def check_words_to_study_in_deep_file():
 	try:
 		from study_in_deep import words_to_study_in_deep
 		if bool(words_to_study_in_deep):
-			check = input('Do you want to load the saved "words to study in deep" ? [Y/N] ')
+			check = input('Vuoi caricare il dizionario delle parole da ripassare? [y/n] ')
 			check = str(check.upper())
 			if check == 'Y':
 				words_in_progress = words_to_study_in_deep
 			elif check == 'N':
 				words_in_progress = select_level(wordbase)
 			else:
-				print('Please type \'Y\' or \'N\'!')
+				print('Digita \'Y\' o \'N\'!')
 				check_words_to_study_in_deep_file()
 			return words_in_progress
 	except:
@@ -45,15 +45,15 @@ def check_words_to_study_in_deep_file():
 # select the level of the test
 def select_level(wordbase):
 	level = 0
-	check = input('Until what lesson do you want to test your knowledge? Insert a number between 1 and ' + str(len(wordbase)) + '!')
+	check = input('Fino a che lezione vuoi testare le tue skills? Inserisci un numero tra 1 e ' + str(len(wordbase)) + '!')
 	if check != None:
 		try:
 			level = int(check)
 			if level < 1 or level > len(wordbase):
-				print('You must insert a number between 1 and ' + str(len(wordbase)) + '!')
+				print('Devi inserire un numero tra 1 e ' + str(len(wordbase)) + '!')
 				select_level(wordbase)
 		except ValueError:
-		    print('You must insert a number between 1 and ' + str(len(wordbase)) + '!')
+		    print('Devi inserire un numero tra 1 e ' + str(len(wordbase)) + '!')
 		    select_level(wordbase)
 		# prepare the level of the new wordbase
 		for l in range(1, level + 1):
@@ -67,15 +67,15 @@ def loop_random_key(words_in_progress):
 		ask_value(word)
 	else:
 		stop_time()
-		print('Congratulations! You have finished your training in ' + delta_time(start, stop_time()) +  '. Good job!')
+		print('Congratulazioni! Hai finito il tuo training in ' + delta_time(start, stop_time()) +  '. Ottimo lavoro!')
 		check_words_to_study_in_deep(words_to_study_in_deep)
 		
 # ask te user the pinyin and the hanzi
 def ask_value(word):
-	print('What\'s the Pinyin and the hanzi for "' + str(word) + '" ?')
-	answer = input('Press any key to know the result or "exit" to quit the training.')
+	print('Scrivi il pinyin e l\'hanzi che corrispondono alla parola ' + str(word) + '" ?')
+	answer = input('Premi un qualsiasi tasto per vedere la soluzione o "exit" per uscire.')
 	if answer != None and answer != "exit":
-		print('The pinyin and the hanzi for "' + str(word) + '" are ' + str(words_in_progress[word]) + '\n')
+		print('Il risultato per "' + str(word) + '" é ' + str(words_in_progress[word]) + '\n')
 		check_value(word)
 		loop_random_key(words_in_progress)
 	else:
@@ -83,18 +83,18 @@ def ask_value(word):
 
 # check value
 def check_value(word):
-	check = input('Was it correct? [Y/N] ')
+	check = input('Corretto? [y/n] ')
 	if check != None:
 		check = str(check.upper())
 		if check == 'Y':
-			print('Nice shot!', '\n')
+			print('Ottimo!', '\n')
 			remove_key(word)
 		elif check == 'N':
-			print('Don\'t worry, you\'ll do better next time.', '\n')
+			print('Non preoccuparti, farai meglio il prossimo tentativo.', '\n')
 			add_words_to_study_in_deep(word)
 			remove_key(word)
 		else:
-			print('Please type \'Y\' or \'N\'!')
+			print('Digita \'Y\' o \'N\'!')
 			check_value(word)
 
 # remove from new dictionary a word already asked
@@ -108,7 +108,7 @@ def add_words_to_study_in_deep(word):
 # check if there are "words to study in deep" in the end of the lesson
 def check_words_to_study_in_deep(words_to_study_in_deep):
 	if bool(words_to_study_in_deep):
-		print('Take some time to study in deep the following words: ', '\n')
+		print('Prenditi del tempo per ripassare le seguenti parole: ', '\n')
 		for w in words_to_study_in_deep:
 			print(w, ': ', words_to_study_in_deep[w])
 		save_words_to_study_in_deep(words_to_study_in_deep)
@@ -118,25 +118,25 @@ def check_words_to_study_in_deep(words_to_study_in_deep):
 
 # save the "words to study in deep" into a file
 def save_words_to_study_in_deep(words_to_study_in_deep):
-	check = input('Do you want to save these words? [Y/N] ')
+	check = input('Vuoi salvare queste parole? [y/n] ')
 	if check != None:
 		check = str(check.upper())
 		if check == 'Y':
 			with open('study_in_deep.py', 'w') as file:
 				file.write('words_to_study_in_deep = ' + str(words_to_study_in_deep))
-			print('You saved these words!', '\n')
+			print('Hai salvato le parole da approfondire!', '\n')
 		elif check == 'N':
-			print('You did not saved these words!', '\n')
+			print('Non hai salvato le parole.', '\n')
 		else:
-			print('Please type \'Y\' or \'N\'!')
+			print('Digita \'Y\' o \'N\'!')
 			save_words_to_study_in_deep(words_to_study_in_deep)
 
 # start here!
 if __name__ == '__main__':
 	print('\n')
 	print('*' * 30, '\n')
-	print('Test your chinese skills!')
-	print('Take pencil and paper and write down the corrispondent pinyin / hanzi value.', '\n')
+	print('Testa le tue conoscenze della lingua cinese!')
+	print('Prendi carta e penna e scrivi il pinyin e l\'hanzi che corrispondono alla parola in italiano.', '\n')
 	print('*' * 30, '\n')
 	words_in_progress = check_words_to_study_in_deep_file()
 	start = start_time()
