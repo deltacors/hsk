@@ -24,6 +24,12 @@ def delta_time(start, end):
 	delta = str(timedelta(seconds = int(end - start)))
 	return delta
 
+# calculate final percentage
+def percentage(correct_words, total_words):
+	percentage = correct_words * 100  / total_words
+	percentage = float("%0.2f" % percentage)
+	return percentage
+
 # check if there are "words to study in deep" in the beginning of the lesson
 def check_words_to_study_in_deep_file():
 	try:
@@ -45,20 +51,24 @@ def check_words_to_study_in_deep_file():
 # select the level of the test
 def select_level(wordbase):
 	level = 0
-	check = input('Fino a che lezione vuoi testare le tue skills? Inserisci un numero tra 1 e ' + str(len(wordbase)) + '!')
-	if check != None:
-		try:
-			level = int(check)
-			if level < 1 or level > len(wordbase):
-				print('Devi inserire un numero tra 1 e ' + str(len(wordbase)) + '!')
-				select_level(wordbase)
-		except ValueError:
-		    print('Devi inserire un numero tra 1 e ' + str(len(wordbase)) + '!')
-		    select_level(wordbase)
-		# prepare the level of the new wordbase
-		for l in range(1, level + 1):
-			words_in_progress.update(wordbase['lesson_' + str(l)])
-		return words_in_progress
+	try:
+		check = input('Fino a che lezione vuoi testare le tue skills? Inserisci un numero tra 1 e ' + str(len(wordbase)) + '!')
+		print('\n')
+		if check != None:
+			try:
+				level = int(check)
+				if level < 1 or level > len(wordbase):
+					print('Devi inserire un numero tra 1 e ' + str(len(wordbase)) + '!')
+					select_level(wordbase)
+			except ValueError:
+			    print('Devi inserire un numero tra 1 e ' + str(len(wordbase)) + '!')
+			    select_level(wordbase)
+			# prepare the level of the new wordbase
+			for l in range(1, level + 1):
+				words_in_progress.update(wordbase['lesson_' + str(l)])
+			return words_in_progress
+	except (KeyboardInterrupt, SystemExit):
+		exit(0)
 
 # loop through the new dictionary of words
 def loop_random_key(words_in_progress):
@@ -67,18 +77,24 @@ def loop_random_key(words_in_progress):
 		ask_value(word)
 	else:
 		stop_time()
-		print('Congratulazioni! Hai finito il tuo training in ' + delta_time(start, stop_time()) +  '. Ottimo lavoro!')
+		print('*' * 30, '\n')
+		print('Congratulazioni! Hai finito il tuo training in ' + delta_time(start, stop_time()) +  '.')
+		print('Il tuo risultato è ' + str(initial_number_of_words - len(words_to_study_in_deep)) + ' risposte esatte su un totale di ' + str(initial_number_of_words) + ' parole.')
+		print('La tua percentuale di successo è del ' + str(percentage(initial_number_of_words - len(words_to_study_in_deep), initial_number_of_words)) + '%')
 		check_words_to_study_in_deep(words_to_study_in_deep)
 		
-# ask te user the pinyin and the hanzi
+# ask the pinyin and the hanzi
 def ask_value(word):
-	print('Scrivi il pinyin e l\'hanzi che corrispondono alla parola "' + str(word) + '" ?')
-	answer = input('Premi un qualsiasi tasto per vedere la soluzione o "exit" per uscire.')
-	if answer != None and answer != "exit":
-		print('Il risultato per "' + str(word) + '" é ' + str(words_in_progress[word]) + '\n')
-		check_value(word)
-		loop_random_key(words_in_progress)
-	else:
+	print('Scrivi il pinyin e l\'hanzi che corrispondono alla parola "' + str(word) + '".')
+	try:
+		answer = input('Premi un qualsiasi tasto per vedere la soluzione o "exit" per uscire.')
+		if answer != None and answer != "exit":
+			print('Il risultato per "' + str(word) + '" é ' + str(words_in_progress[word]) + '\n')
+			check_value(word)
+			loop_random_key(words_in_progress)
+		else:
+			exit(0)
+	except (KeyboardInterrupt, SystemExit):
 		exit(0)
 
 # check value
@@ -138,6 +154,11 @@ if __name__ == '__main__':
 	print('Testa le tue conoscenze della lingua cinese!')
 	print('Prendi carta e penna e scrivi il pinyin e l\'hanzi che corrispondono alla parola in italiano.', '\n')
 	print('*' * 30, '\n')
+	# fill the worlist
 	words_in_progress = check_words_to_study_in_deep_file()
+	# count total words
+	initial_number_of_words = len(words_in_progress)
+	# start time
 	start = start_time()
+	# start loopin'
 	loop_random_key(words_in_progress)
