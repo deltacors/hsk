@@ -1,164 +1,194 @@
 import random
+import sys
 import time
 from datetime import timedelta
 from wordbase import wordbase
+try:
+	from revision import revision_wordbase
+	revision = True
+except:
+	revision = False
 
-# create a copy of the wordbase
-words_in_progress = {}
+class Training():
 
-# words to study in deep
-words_to_study_in_deep = {} 
+	def __init__(self, training_wordbase):
+		self.training_wordbase = training_wordbase
 
-# start time 
-def start_time():
-	start = time.time()
-	return start
-
-# stop time 
-def stop_time():
-	end = time.time()
-	return end
-
-# calculate delta
-def delta_time(start, end):
-	delta = str(timedelta(seconds = int(end - start)))
-	return delta
-
-# calculate final percentage
-def percentage(correct_words, total_words):
-	percentage = correct_words * 100  / total_words
-	percentage = float("%0.2f" % percentage)
-	return percentage
-
-# check if there are "words to study in deep" in the beginning of the lesson
-def check_words_to_study_in_deep_file():
-	try:
-		from study_in_deep import words_to_study_in_deep
-		if bool(words_to_study_in_deep):
-			check = input('Vuoi caricare il dizionario delle parole da ripassare? [y/n] ')
-			check = str(check.upper())
-			if check == 'Y':
-				words_in_progress = words_to_study_in_deep
-			elif check == 'N':
-				words_in_progress = select_level(wordbase)
-			else:
-				print('Digita \'Y\' o \'N\'!')
-				check_words_to_study_in_deep_file()
-			return words_in_progress
-	except:
-		return select_level(wordbase)
-
-# select the level of the test
-def select_level(wordbase):
-	level = 0
-	try:
-		check = input('Fino a che lezione vuoi testare le tue skills? Inserisci un numero tra 1 e ' + str(len(wordbase)) + '!')
+	def hello(self):
 		print('\n')
-		if check != None:
-			try:
-				level = int(check)
-				if level < 1 or level > len(wordbase):
-					print('Devi inserire un numero tra 1 e ' + str(len(wordbase)) + '!')
-					select_level(wordbase)
-			except ValueError:
-			    print('Devi inserire un numero tra 1 e ' + str(len(wordbase)) + '!')
-			    select_level(wordbase)
-			# prepare the level of the new wordbase
-			for l in range(1, level + 1):
-				words_in_progress.update(wordbase['lesson_' + str(l)])
-			return words_in_progress
-	except (KeyboardInterrupt, SystemExit):
-		exit(0)
-
-# loop through the new dictionary of words
-def loop_random_key(words_in_progress):
-	if bool(words_in_progress):
-		word = random.choice(list(words_in_progress))
-		ask_value(word)
-	else:
-		stop_time()
 		print('*' * 30, '\n')
-		print('Congratulazioni! Hai finito il tuo training in ' + delta_time(start, stop_time()) +  '.')
-		print('Il tuo risultato è ' + str(initial_number_of_words - len(words_to_study_in_deep)) + ' risposte esatte su un totale di ' + str(initial_number_of_words) + ' parole.')
-		print('La tua percentuale di successo è del ' + str(percentage(initial_number_of_words - len(words_to_study_in_deep), initial_number_of_words)) + '%')
-		check_words_to_study_in_deep(words_to_study_in_deep)
-		
-# ask the pinyin and the hanzi
-def ask_value(word):
-	print('Scrivi il pinyin e l\'hanzi che corrispondono alla parola "' + str(word) + '".')
-	try:
-		answer = input('Premi un qualsiasi tasto per vedere la soluzione o "exit" per uscire.')
-		if answer != None and answer != "exit":
-			print('Il risultato per "' + str(word) + '" é ' + str(words_in_progress[word]) + '\n')
-			check_value(word)
-			loop_random_key(words_in_progress)
-		else:
-			exit(0)
-	except (KeyboardInterrupt, SystemExit):
-		exit(0)
+		print('Testa le tue conoscenze della lingua cinese! \nPrendi carta e penna e scrivi il pinyin e l\'hanzi che corrispondono alla parola in italiano.\n')
+		print('Durante il test premi un qualsiasi tasto per vedere la parola richiesta.')
+		print('Puoi uscire in qualsiasi momento digitando CTRL + C.\n')
+		print('*' * 30, '\n')
 
-# check value
-def check_value(word):
-	check = input('Corretto? [y/n] ')
-	if check != None:
-		check = str(check.upper())
-		if check == 'Y':
-			print('Ottimo!', '\n')
-			remove_key(word)
-		elif check == 'N':
-			print('Non preoccuparti, farai meglio il prossimo tentativo.', '\n')
-			add_words_to_study_in_deep(word)
-			remove_key(word)
-		else:
-			print('Digita \'Y\' o \'N\'!')
-			check_value(word)
+	def goodbye(self, delta):
+		# stop time
+		print('*' * 30, '\n')
+		print('Congratulazioni! Hai finito il tuo training in ' + str(delta))
+		print('Il tuo risultato è ' + str(correct) + ' risposte esatte su un totale di ' + str(words) + ' parole.')
+		print('La tua percentuale di successo è del ' + str(stat) + ' %', '\n')
+		print('*' * 30, '\n')
 
-# remove from new dictionary a word already asked
-def remove_key(word):
-	del words_in_progress[word]
+	def exit_message(self):
+		print('\n')
+		print('[*] Test interrotto! 再见', '\n')
+		sys.exit(0)
 
-# add word to the "words to study in deep" dictionary
-def add_words_to_study_in_deep(word):
-	words_to_study_in_deep[word] = words_in_progress[word]
+	def get_time(self):
+		return time.time()
 
-# check if there are "words to study in deep" in the end of the lesson
-def check_words_to_study_in_deep(words_to_study_in_deep):
-	if bool(words_to_study_in_deep):
-		print('Prenditi del tempo per ripassare le seguenti parole: ', '\n')
-		for w in words_to_study_in_deep:
-			print(w, ': ', words_to_study_in_deep[w])
-		save_words_to_study_in_deep(words_to_study_in_deep)
-	else:
-		with open('study_in_deep.py', 'w') as file:
-			file.write('')
+	def delta_time(self, start, end):
+		return str(timedelta(seconds = int(end - start)))
 
-# save the "words to study in deep" into a file
-def save_words_to_study_in_deep(words_to_study_in_deep):
-	check = input('Vuoi salvare queste parole? [y/n] ')
-	if check != None:
-		check = str(check.upper())
-		if check == 'Y':
-			with open('study_in_deep.py', 'w') as file:
-				file.write('words_to_study_in_deep = ' + str(words_to_study_in_deep))
-			print('Hai salvato le parole da approfondire!', '\n')
-		elif check == 'N':
-			print('Non hai salvato le parole.', '\n')
-		else:
-			print('Digita \'Y\' o \'N\'!')
-			save_words_to_study_in_deep(words_to_study_in_deep)
+	def percentage(self, correct, words):
+		return float("%0.2f" % (correct * 100 / words))
+
+	def asker(self, question):
+		try:
+			answer = 0
+			check = input(question)
+			if check != None:
+				check = check.lower()
+				if check == 'y':
+					answer = True
+				elif check == 'n':
+					answer = False
+				else:
+					answer = self.asker(question)
+				return answer
+		except KeyboardInterrupt:
+			self.exit_message()
+
+	def check_levels(self):
+		return len(wordbase)
+
+	def select_min_level(self):
+		try:
+			while True:
+				check = input('[+] Inserisci il livello minimo da cui partire: ')
+				if check != None:
+					try:
+						check = int(check)
+						if check < 1:
+							print('[-] Il livello minimo non può essere inferiore a 1.', '\n')
+						elif check > self.check_levels():
+							print('[-] Il numero inserito supera le lezioni disponibili.', '\n')
+						else:
+							return check
+					except:
+			 		 	print('[-] Inserisci un valore numerico.', '\n')	
+		except KeyboardInterrupt:
+			self.exit_message()
+
+	def select_max_level(self, min_level):
+		try:
+			while True:
+				check = input('[+] Inserisci il livello massimo fino a cui vuoi arrivare: ')
+				if check != None:
+					try:
+						check = int(check)
+						if check < min_level:
+							print('[-] Il livello massimo deve essere superiore al livello minimo.', '\n')
+						elif check > self.check_levels():
+							print('[-] Il numero inserito supera le lezioni disponibili.', '\n')
+						else:
+							return check
+					except:
+			 		 	print('[-] Inserisci un valore numerico.', '\n')	
+		except KeyboardInterrupt:
+			self.exit_message()
+
+	def prepare_training_wordbase(self, min_level, max_level):
+		for l in range(min_level, max_level + 1):
+			training_wordbase.update(wordbase['lesson_' + str(l)])
+		return training_wordbase
+
+	def loop_training_wordbase(self, training_wordbase):
+		return random.choice(list(training_wordbase))
+
+	def ask_word(self, word):
+		try:
+			check = input('[+] Scrivi il pinyin e l\'hanzi che corrispondono alla parola "' + str(word) + '".')
+			if check != None and check != "exit":
+				print('[*] Il risultato per "' + str(word) + '" é ' + str(training_wordbase[word]) + '\n')
+		except KeyboardInterrupt:
+			self.exit_message()
+
+	def add_to_revision(self, word):
+		revision_wordbase[word] = training_wordbase[word]
+
+	def remove_word(self, word):
+		del training_wordbase[word]
+
+	def reset_revision(self):
+		revision_wordbase = {}
+		return revision_wordbase
+
+	def review_revision(self, revision_wordbase):
+		print('[*] Prenditi del tempo per ripassare le seguenti parole: ', '\n')
+		for w in revision_wordbase:
+			print(w, ': ' + revision_wordbase[w])
+		print('')
+
 
 # start here!
 if __name__ == '__main__':
-	print('\n')
-	print('*' * 30, '\n')
-	print('Testa le tue conoscenze della lingua cinese!')
-	print('Prendi carta e penna e scrivi il pinyin e l\'hanzi che corrispondono alla parola in italiano.', '\n')
-	print('*' * 30, '\n')
-	# fill the worlist
-	words_in_progress = check_words_to_study_in_deep_file()
-	# count total words
-	initial_number_of_words = len(words_in_progress)
+
+	training_wordbase = {}
+
+	# init and greetings
+	t = Training(training_wordbase)
+	t.hello()
+	# check and ask for revision
+	if not revision or not t.asker('[+] Vuoi caricare il dizionario delle parole da ripassare? [y/n]'):
+		print('[*] Ci sono ' + str(t.check_levels()) + ' lezioni disponibili!', '\n')
+		# select levels
+		min_level = t.select_min_level()
+		max_level = t.select_max_level(min_level)
+		print()
+		print('[*] Hai selezionato livello minimo: ' + str(min_level) + ' e livello massimo: '+ str(max_level), '\n')
+		training_wordbase = t.prepare_training_wordbase(min_level, max_level)
+	else:
+		training_wordbase = revision_wordbase
+	# init revision wordbase
+	revision_wordbase = t.reset_revision()
+	# get initial number of words
+	words = len(training_wordbase)
 	# start time
-	start = start_time()
-	# start loopin'
-	loop_random_key(words_in_progress)
+	start_time = t.get_time()
+	# loop until the wordbase is populated
+	while bool(training_wordbase):
+		# extract a random word
+		word = t.loop_training_wordbase(training_wordbase)
+		# ask the pinyin and hanzi
+		answer = t.ask_word(word)
+		# check if the aswer was right
+		if t.asker('[+] Hai risposto correttamente? [y/n]'):
+			print('[*] Ottimo!', '\n')
+		else:
+			print('[*] Non preoccuparti, farai meglio il prossimo tentativo.', '\n')
+			t.add_to_revision(word)
+		# remove word from training wordbase
+		t.remove_word(word)
+	else:
+		# stop time
+		stop_time = t.get_time()
+		# calculate delta
+		delta = t.delta_time(start_time, stop_time)
+		# statistics
+		correct = words - len(revision_wordbase)
+		stat = t.percentage(correct, words)
+		# the test is finished
+		t.goodbye(delta)
+		# if you made some mistakes
+		if bool(revision_wordbase):
+			t.review_revision(revision_wordbase)
+			# open file
+			file = open('revision.py', 'w')
+			if t.asker('[+] Vuoi salvare queste parole? [y/n]'):
+				file.write('revision_wordbase = ' + str(revision_wordbase))
+				print('[*] Hai salvato le parole da approfondire, buono studio!')
+			else:
+				file.write('')
+			file.close()
