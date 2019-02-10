@@ -23,7 +23,6 @@ class Training():
 		print('*' * 30, '\n')
 
 	def goodbye(self, delta):
-		# stop time
 		print('*' * 30, '\n')
 		print('Congratulazioni! Hai finito il tuo training in ' + str(delta))
 		print('Il tuo risultato è ' + str(correct) + ' risposte esatte su un totale di ' + str(words) + ' parole.')
@@ -110,7 +109,7 @@ class Training():
 	def ask_word(self, word):
 		try:
 			check = input('[+] Scrivi il pinyin e l\'hanzi che corrispondono alla parola "' + str(word) + '".')
-			if check != None and check != "exit":
+			if check != None:
 				print('[*] Il risultato per "' + str(word) + '" é ' + str(training_wordbase[word]) + '\n')
 		except KeyboardInterrupt:
 			self.exit_message()
