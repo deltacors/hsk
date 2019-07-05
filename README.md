@@ -15,7 +15,7 @@ You can run this script anywhere, you just need to have:
 # How do I get it?
 You can download the script in .zip format from this page or type from a Terminal of your choice: 
 
-<pre><code>git clone https://github.com/manuelpellegrinet/hsk-hanzi-training.git</code></pre>
+<pre><code>git clone https://github.com/manuelpellegrinet/hsk.git</code></pre>
 
 For this operation you need to have git installed on your system.
 
