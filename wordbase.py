@@ -1,177 +1,156 @@
-# list of words to test
+# list of words acconding to HSK
 wordbase = {
-	#lesson 1
-	"lesson_1" : {
-		'otto' : 'ba1 / 八',
-		'non (negazione)' : 'bu4 ／ 不',
-		'grande' : 'da4 ／ 大',
-		'forza' : 'li4 ／ 力',
-		'cavallo' : 'ma3 ／ 马',
-		'riso, metro' : 'mi3 ／ 米',
-		'legno' : 'mu4 ／ 木',
-		'femminile' : 'nü3 ／ 女',
-		'uno' : 'yi1 ／ 一',
-	},
-	# lesson 2
-	"lesson_2" : {
-		'papà' : 'ba4ba ／ 爸爸',
-		'bocca' : 'kou3 ／ 口',
-		'mamma' : 'ma1ma ／ 妈妈',
-		'ciao, salve' : 'ni3hao3 ／ 你好'	
-	},
-	# lesson 3
-	"lesson_3" : {
-		'lingua cinese' : 'han4yu3 ／ 汉语',
-		'lezione' : 'ke4 ／ 课',
-		'adesso' : 'xian4zai4 ／ 现在',
-		'grazie' : 'xie4xie ／ 谢谢',
-		'studiare' : 'xue2xi2 ／ 学习',
-		'arrivederci' : 'zai4jian4 ／ 再见'
-	},
-	# lesson 4
-	"lesson_4" : {
-		'zero' : 'ling2 / 零',
-		'due' : 'er4 / 二',
-		'tre' : 'san1 / 三',
-		'quattro' : 'si4 / 四',
-		'cinque' : 'wu3 / 五',
-		'sei' : 'liu4 / 六',
-		'sette' : 'qi1 / 七',
-		'nove' : 'jiu3 / 九',
-		'dieci' : 'shi2 / 十',
-		'tranquillo, silenzioso' : 'an1jing4 ／ 安静',
-		'mangiare' : 'chi1 ／ 吃',
-		'insegnante, professore o maestro' : 'lao3shi1 ／ 老师',
-		'tu, te' : 'ni3 ／ 你',
-		'voi' : 'ni3men ／ 你们',
-		'invitare' : 'qing3 ／ 请',
-		'fare lezione, seguire una lezione' : 'shang4//ke4 ／ 上课',
-		'lui' : 'ta1 ／ 他',
-		'lei' : 'ta1 ／ 她',
-		'loro (maschile)' : 'ta1men ／ 他们',
-		'loro (femminile)' : 'ta1men ／ 她们',
-		'io, me' : 'wo3 ／ 我',
-		'noi' : 'wo3men ／ 我们',
-		'finire lezione' : 'xia4//ke4 ／ 下课',
-		'riposare' : 'xiu1xi ／ 休息',
-		'studente' : 'xue2sheng ／ 学生',
-		'scusa!' : 'dui4 bu qi3 ／ 对不起'
-	},
-	# lesson 5
-	"lesson_5" : {
-		'particella modale finale con valore interrogativo' : 'ma ／ 吗',
-		'chi?' : 'shei2/shui2 ／ 谁',
-		'verbo essere (copula)' : 'shi4 ／ 是'
-	},
-	# lesson 6
-	"lesson_6" : {
-		'classe (insieme di studenti)' : 'ban1 ／ 班',
-		'particella che marca la relazione tra determinante e determinato' : 'de ／的',
-		'tutto/tutti, entrambi' : 'dou1 ／ 都',
-		'e, con' : 'he2 ／ 和',
-		'particella modale finale con valore interrogativo debole' : 'ne ／ 呢',
-		'amico/a' : 'peng2you ／ 朋友',
-		'persona' : 'ren2 ／ 人',
-		'compagno/a di studi' : 'tong2xue2 ／ 同学',
-		'anche' : 'ye3 ／ 也',
-		'lingua tedesca' : 'De4yu3 ／ 德语',
-		'lingua francese' : 'Fa3yu3 ／ 法语',
-		'lingua giapponese' : 'Ri4yu3 ／ 日语',
-		'dire' : 'shuo1 ／ 说',
-		'lingua italiana' : 'Yi4da4li4yu3 ／ 意大利语',
-		'lingua inglese' : 'Ying1yu3 ／ 英语',
-		'piccolo' : 'xiao3 ／ 小',
-		'pioggia' : 'yu3 ／ 雨',
-		'Wang (nome proprio)' : 'Wang2 ／ 王',
-		'Xiaoyu (nome proprio)' : 'Xiao3yu3 ／ 小雨',
-		'Parigi' : 'Ba1li2 ／ 巴黎',
-		'Pechino' : 'Bei3jing1 ／ 北京',
-		'Londra' : 'Lun2dun1 ／ 伦敦',
-		'Roma' : 'Luo2ma3 ／ 罗马',
-		'Milano' : 'Mi3lan2 ／ 米兰'
-	},
-	# lesson 7
-	"lesson_7" : {
-		'particella finale usata per una domandaper cui ci si aspetta risposta positiva' : 'ba ／ 吧',
-		'università' : 'da4xue2 ／ 大学',
-		'esatto/esattamente' : 'dui4 ／ 对',
-		'caro/prezioso' : 'gui4 ／ 贵',
-		'paese' : 'guo2 ／ 国',
-		'chiamarsi/chiamare' : 'jiao4 ／ 叫',
-		'studente residente all\'estero' : 'liu2xue2sheng1 ／ 留学生',
-		'nome di persona' : 'ming2zi ／ 名字',
-		'quale?' : 'na3 ／ 哪',
-		'dove?' : 'nar3 ／ 哪儿',
-		'Lei (forma di cortesia)' : 'nin2 ／ 您',
-		'che cosa?, quale?' : 'shen2me ／ 什么',
-		'chiedere, domandare' : 'wen4 ／ 问',
-		'letteratura' : 'wen2xue2 ／ 文学',
-		'cognome, fare di cognome' : 'xing4 ／ 姓',
-		'Francia' : 'Fa3guo2 ／ 法国',
-		'Luis (nome proprio)' : 'Lu4yi4 ／ 路易',
-		'Italia' : 'Yi4da4li4 ／ 意大利',
-		'Cina' : 'Zhong1guo2 ／ 中国',
-		'Berlino' : 'Bo2lin2 ／ 柏林',
-		'Germania' : 'De2guo2 ／ 德国',
-		'Russia' : 'Eguo2 ／ 俄国',
-		'Corea del Sud' : 'Han2guo2 ／ 韩国',
-		'Madrid' : 'Ma3de2li3 ／ 马德里',
-		'Stati Uniti' : 'Mei3guo2 ／ 美国',
-		'Giappone' : 'Ri4ben3 ／ 日本',
-		'Spagna' : 'Xi1ban1ya2 ／ 西班牙',
-		'Regno Unito' : 'Ying1guo2 ／ 英国',
-		'Li Xiaolong (nome proprio)' : 'Li3 Xiao3long2 ／ 李小龙'
-	},
-	# lesson 8
-	"lesson_8" : {
-		'interesse, hobby' : 'ai4hao4 ／ 爱好',
-		'spesso' : 'chang2 ／ 常 ／ 常常',
-		'telefono' : 'dian4hua4 ／ 电话',
-		'film' : 'dian4ying3 ／ 电影',
-		'quanto? quanti?' : 'duo1shao ／ 多少',
-		'numero' : 'hao4ma3 ／ 号码',
-		'ancora, anche' : 'hai2 ／ 还',
-		'molto' : 'hen3 ／ 很',
-		'guardare, visitare, leggere mentalmente' : 'kan4 ／ 看',
-		'navigare in rete' : 'shang4//wang3 ／ 上网',
-		'poco' : 'shao3 ／ 少',
-		'telefono cellulare' : 'shou3ji1 ／ 手机',
-		'libro' : 'shu1 ／ 书',
-		'ballare' : 'tiao4//wu3 ／ 跳舞',
-		'ascoltare' : 'ting1 ／ 听',
-		'piacere' : 'xi3huan ／ 喜欢',
-		'musica' : 'ying1yue4 ／ 音乐',
-		'cantare' : 'chang4//ge1 ／ 唱歌',
-		'dialetto di Pechino' : 'Bei3jing1hua4 ／ 北京话',
-		'dialetto di Canton' : 'Guang3dong1hua4 ／ 广东话',
-		'lingua standard/lingua comune' : 'Pu3tong1hua4 ／ 普通话',
-		'dialetto di Shanghai' : 'Shang4hai3hua4 ／ 上海话',
-		'dialetto di Wenzhou' : 'Wen1zhou1hua4 ／ 温州话',
-		'televisione' : 'dian4shi4 ／ 电视'
-	},
-	# lesson 9
-	"lesson_9" : {
-		'dizionario' : 'ci2dian3 / 词典',
-		'tornare' : 'hui2 / 回',
-		'casa, famiglia' : 'jia1 / 家',
-		'oggi' : 'jin1tian1 / 今天',
-		'comprare' : 'mai3 / 买',
-		'domani' : 'ming2tian1 / 明天',
-		'maschile' : 'nan2 / 男',
-		'andare' : 'qu4 / 去',
-		'libreria' : 'shu1dian4 / 书店',
-		'sera' : 'wan3shang / 晚上',
-		'andar bene' : 'xing2 / 行',
-		'insieme' : 'yi4qi3 / 一起',
-		'noi (include parlante e interlocutore)' : 'zan2men / 咱们',
-		'lingua Cinese (in senso esteso)' : 'zhong1wen2 / 中文',
-		'cosa, oggetto' : 'dong1xi / 东西',
-		'venire' : 'lai2 / 来',
-		'negozio' : 'shang1dian4 / 商店',
-		'mattina' : 'shang4wu3 / 上午',
-		'pomeriggio' : 'xia4wu3 / 下午',
-		'mattina presto (fino alle 08:00)' : 'zao3shang4 / 早上',
-		'ore intorno a mezzogiorno' : 'zhong1wu3 / 中午'
+	#HSK 1
+	"HSK_1" : {
+		'love' : 'ai4 / 爱'
+		'eight' : 'ba1 / 八'
+		'Dad' : 'ba4ba5 / 爸爸'
+		'cup, glass' : 'bei1zi5 / 杯子'
+		'Beijing' : 'Bei3jing1 / 北京'
+		'measure word for books' : 'ben3 / 本'
+		'you\'re welcome, don\'t be polite' : 'bu2ke4qi5 / 不客气'
+		'no, not' : 'bu4 / 不'
+		'dish (type of food), vegetables' : 'cai4 / 菜'
+		'tea' : 'cha2 / 茶'
+		'eat' : 'chi1 / 吃'
+		'taxi, cab' : 'chu1zu1che1 / 出租车'
+		'make a phone call' : 'da3dian4hua4 / 打电话'
+		'big, large' : 'da4 / 大'
+		'indicates possession, like adding \'s to a noun' : 'de5 / 的'
+		'a dot, a little, o\'clock' : 'dian3 / 点'
+		'computer' : 'dian4nao3 / 电脑'
+		'television, TV' : 'dian4shi4 / 电视'
+		'movie, film' : 'dian4ying3 / 电影'
+		'things, stuff' : 'dong1xi5 / 东西'
+		'all, both' : 'dou1 / 都'
+		'to read, to study' : 'du2 / 读'
+		'sorry' : 'dui4bu5qi3 / 对不起'
+		'many' : 'duo1 / 多'
+		'how much?, how many?' : 'duo1shao5 / 多少'
+		'son' : 'er2zi5 / 儿子'
+		'two' : 'er4 / 二'
+		'restaurant, hotel' : 'fan4dian4 / 饭店'
+		'airplane' : 'fei1ji1 / 飞机'
+		'minute, (measure word for time)' : 'fen1zhong1 / 分钟'
+		'happy, glad' : 'gao1xing4 / 高兴'
+		'general measure word' : 'ge5 / 个'
+		'work, a job' : 'gong1zuo4 / 工作'
+		'dog' : 'gou3 / 狗'
+		'Chinese language' : 'Han4yu3 / 汉语'
+		'good' : 'hao3 / 好'
+		'number, day of a month' : 'hao4 / 号'
+		'to drink' : 'he1 / 喝'
+		'and, with' : 'he2 / 和'
+		'very, quite' : 'hen3 / 很'
+		'back, behind' : 'hou4mian5 / 后面'
+		'to return, to reply, to go back' : 'hui2 / 回'
+		'know how to' : 'hui4 / 会'
+		'how' : 'ji3 / 几'
+		'family' : 'jia1 / 家'
+		'to be called' : 'jiao4 / 叫'
+		'today' : 'jin1tian1 / 今天'
+		'nine' : 'jiu3 / 九'
+		'to open, to start, to operate (a vehicle)' : 'kai1 / 开'
+		'see, look at, to watch' : 'kan4 / 看'
+		'see, catch sight of' : 'kan4jian4 / 看见'
+		'lump, piece, sum of money' : 'kuai4 / 块'
+		'come, arrive, ever since, next' : 'lai2 / 来'
+		'teacher' : 'lao3shi1 / 老师'
+		'indicates a completed or finished action' : 'le5 / 了'
+		'cold' : 'leng3 / 冷'
+		'inside, Chinese mile (~.5 km)' : 'li3 / 里'
+		'six' : 'liu4 / 六'
+		'mom' : 'ma1ma5 / 妈妈'
+		'indicates a yes/no question' : 'ma5 / 吗'
+		'to buy' : 'mai3 / 买'
+		'cat' : 'mao1 / 猫'
+		'it doesn\'t matter, never mind' : 'mei2 guan1xi5 / 没关系'
+		'not have, there is not' : 'mei2you3 / 没有'
+		'(cooked)' : 'mi3fan4 / 米饭'
+		'tomorrow' : 'ming2tian1 / 明天'
+		'name' : 'ming2zi5 / 名字'
+		'which, how' : 'na3 / 哪'
+		'where?' : 'na3r5 / 哪儿'
+		'that, then' : 'na4 / 那'
+		'indicates a question, how about...?' : 'ne5 / 呢'
+		'can, be able' : 'neng2 / 能'
+		'you' : 'ni3 / 你'
+		'year' : 'nian2 / 年'
+		'daughter' : 'nu3er2 / 女儿'
+		'friend' : 'peng2you5 / 朋友'
+		'pretty, beautiful' : 'piao4liang5 / 漂亮'
+		'apple' : 'ping2guo3 / 苹果'
+		'seven' : 'qi1 / 七'
+		'money' : 'qian2 / 钱'
+		'in front' : 'qian2mian4 / 前面'
+		'please, invite, to treat someone to something' : 'qing3 / 请'
+		'go, to leave' : 'qu4 / 去'
+		'heat, hot' : 're4 / 热'
+		'person, man, people' : 'ren2 / 人'
+		'recognize, know (a person)' : 'ren4shi5 / 认识'
+		'three' : 'san1 / 三'
+		'shop, store' : 'shang1dian4 / 商店'
+		'above, up' : 'shang4 / 上'
+		'late morning (before noon)' : 'shang4wu3 / 上午'
+		'few, little' : 'shao3 / 少'
+		'who' : 'shei2 / 谁'
+		'what? (replaces the noun to turn a statement into a question)' : 'shen2me5 / 什么'
+		'ten' : 'shi2 / 十'
+		'time' : 'shi2hou5 / 时候'
+		'be, is, are, am' : 'shi4 / 是'
+		'book, letter' : 'shu1 / 书'
+		'water' : 'shui3 / 水'
+		'fruit' : 'shui3guo3 / 水果'
+		'to sleep, go to bed' : 'shui4jiao4 / 睡觉'
+		'speak' : 'shuo1 / 说'
+		'four' : 'si4 / 四'
+		'years old, age' : 'sui4 / 岁'
+		'he, him' : 'ta1 / 他'
+		'she, her' : 'ta1 / 她'
+		'too (much)' : 'tai4 / 太'
+		'weather' : 'tian1qi4 / 天气'
+		'listen, hear' : 'ting1 / 听'
+		'fellow student, schoolmate' : 'tong2xue2 / 同学'
+		'hello (on the phone)' : 'wei4 / 喂'
+		'I, me' : 'wo3 / 我'
+		'we, us' : 'wo3men5 / 我们'
+		'five' : 'wu3 / 五'
+		'to like' : 'xi3huan5 / 喜欢'
+		'fall, below' : 'xia4 / 下'
+		'afternoon' : 'xia4wu3 / 下午'
+		'to rain' : 'xia4yu3 / 下雨'
+		'Mr., Sir' : 'xian1sheng5 / 先生'
+		'now' : 'xian4zai4 / 现在'
+		'think, believe, suppose, would like to' : 'xiang3 / 想'
+		'small, young' : 'xiao3 / 小'
+		'young lady, miss, Ms.' : 'xiao3jie5 / 小姐'
+		'some, few, several' : 'xie1 / 些'
+		'to write, to compose' : 'xie3 / 写'
+		'thank you' : 'xie4xie5 / 谢谢'
+		'week' : 'xing1qi1 / 星期'
+		'student' : 'xue2sheng5 / 学生'
+		'learn, to study' : 'xue2xi2 / 学习'
+		'school' : 'xue2xiao4 / 学校'
+		'one, once, a' : 'yi1 / 一'
+		'clothes' : 'yi1fu5 / 衣服'
+		'doctor' : 'yi1sheng1 / 医生'
+		'hospital' : 'yi1yuan4 / 医院'
+		'chair' : 'yi3zi5 / 椅子'
+		'a bit, a few' : 'yi4dian3r5 / 一点儿'
+		'have' : 'you3 / 有'
+		'moon, month' : 'yue4 / 月'
+		'at, on, in, indicates an action in progress' : 'zai4 / 在'
+		'goodbye, see you later' : 'zai4jian4 / 再见'
+		'how?' : 'zen3me5 / 怎么'
+		'how about?, how is/was it?' : 'zen3me5yang4 / 怎么样'
+		'this' : 'zhe4 / 这'
+		'China' : 'Zhong1guo2 / 中国'
+		'noon, midday' : 'zhong1wu3 / 中午'
+		'to live, reside, to stop' : 'zhu4 / 住'
+		'table, desk' : 'zhuo1zi5 / 桌子'
+		'letter, character' : 'zi4 / 字'
+		'yesterday' : 'zuo2tian1 / 昨天'
+		'do, make' : 'zuo4 / 做'
+		'sit' : 'zuo4 / 坐'
 	}
-
 }
