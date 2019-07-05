@@ -17,21 +17,21 @@ class Training():
 	def hello(self):
 		print('\n')
 		print('*' * 30, '\n')
-		print('Testa le tue conoscenze della lingua cinese! \nPrendi carta e penna e scrivi il pinyin e l\'hanzi che corrispondono alla parola in italiano.\n')
-		print('Durante il test premi un qualsiasi tasto per vedere la parola richiesta.')
-		print('Puoi uscire in qualsiasi momento digitando CTRL + C.\n')
+		print('Test your chinese knowlegde!\nBring pen and paper and write down the corrispondent pinyin and hanzi.\n')
+		print('During the test press any key to see the result.')
+		print('You can exit from the test anytime pressing CTRL + C.\n')
 		print('*' * 30, '\n')
 
 	def goodbye(self, delta):
 		print('*' * 30, '\n')
-		print('Congratulazioni! Hai finito il tuo training in ' + str(delta))
-		print('Il tuo risultato è ' + str(correct) + ' risposte esatte su un totale di ' + str(words) + ' parole.')
-		print('La tua percentuale di successo è del ' + str(stat) + ' %', '\n')
+		print('Congratulations! You have finished the training in ' + str(delta))
+		print('Your result is ' + str(correct) + ' correct answers out of a total of ' + str(words) + ' words.')
+		print('Your success percentage is ' + str(stat) + ' %', '\n')
 		print('*' * 30, '\n')
 
 	def exit_message(self):
 		print('\n')
-		print('[*] Test interrotto! 再见', '\n')
+		print('[*] Test interrupted! 再见', '\n')
 		sys.exit(0)
 
 	def get_time(self):
@@ -65,42 +65,42 @@ class Training():
 	def select_min_level(self):
 		try:
 			while True:
-				check = input('[+] Inserisci il livello minimo da cui partire: ')
+				check = input('[+] Select the minimum level: ')
 				if check != None:
 					try:
 						check = int(check)
 						if check < 1:
-							print('[-] Il livello minimo non può essere inferiore a 1.', '\n')
+							print('[-] The minimum level must be at least 1.', '\n')
 						elif check > self.check_levels():
-							print('[-] Il numero inserito supera le lezioni disponibili.', '\n')
+							print('[-] The number exceeds the total number of levels.', '\n')
 						else:
 							return check
 					except:
-			 		 	print('[-] Inserisci un valore numerico.', '\n')	
+			 		 	print('[-] Insert a numeric value.', '\n')	
 		except KeyboardInterrupt:
 			self.exit_message()
 
 	def select_max_level(self, min_level):
 		try:
 			while True:
-				check = input('[+] Inserisci il livello massimo fino a cui vuoi arrivare: ')
+				check = input('[+] Select the maximum level: ')
 				if check != None:
 					try:
 						check = int(check)
 						if check < min_level:
-							print('[-] Il livello massimo deve essere superiore al livello minimo.', '\n')
+							print('[-] The maximum level must be greater of equal than the minimum level.', '\n')
 						elif check > self.check_levels():
-							print('[-] Il numero inserito supera le lezioni disponibili.', '\n')
+							print('[-] The number exceeds the total number of levels..', '\n')
 						else:
 							return check
 					except:
-			 		 	print('[-] Inserisci un valore numerico.', '\n')	
+			 		 	print('[-] Insert a numeric value.', '\n')	
 		except KeyboardInterrupt:
 			self.exit_message()
 
 	def prepare_training_wordbase(self, min_level, max_level):
 		for l in range(min_level, max_level + 1):
-			training_wordbase.update(wordbase['lesson_' + str(l)])
+			training_wordbase.update(wordbase['HSK_' + str(l)])
 		return training_wordbase
 
 	def loop_training_wordbase(self, training_wordbase):
@@ -108,9 +108,9 @@ class Training():
 
 	def ask_word(self, word):
 		try:
-			check = input('[+] Scrivi il pinyin e l\'hanzi che corrispondono alla parola "' + str(word) + '".')
+			check = input('[+] Write down the pinyin and the hanzi for the word "' + str(word) + '".')
 			if check != None:
-				print('[*] Il risultato per "' + str(word) + '" é ' + str(training_wordbase[word]) + '\n')
+				print('[*] The result for "' + str(word) + '" is ' + str(training_wordbase[word]) + '\n')
 		except KeyboardInterrupt:
 			self.exit_message()
 
@@ -125,7 +125,7 @@ class Training():
 		return revision_wordbase
 
 	def review_revision(self, revision_wordbase):
-		print('[*] Prenditi del tempo per ripassare le seguenti parole: ', '\n')
+		print('[*] Take your time and revise the following words: ', '\n')
 		for w in revision_wordbase:
 			print(w, ': ' + revision_wordbase[w])
 		print('')
@@ -141,12 +141,12 @@ if __name__ == '__main__':
 	t.hello()
 	# check and ask for revision
 	if not revision or not t.asker('[+] Vuoi caricare il dizionario delle parole da ripassare? [y/n]'):
-		print('[*] Ci sono ' + str(t.check_levels()) + ' lezioni disponibili!', '\n')
+		print('[*] There are ' + str(t.check_levels()) + ' levels available!', '\n')
 		# select levels
 		min_level = t.select_min_level()
 		max_level = t.select_max_level(min_level)
 		print()
-		print('[*] Hai selezionato livello minimo: ' + str(min_level) + ' e livello massimo: '+ str(max_level), '\n')
+		print('[*] The selected minimum level is: ' + str(min_level) + ' and the maximum is: '+ str(max_level), '\n')
 		training_wordbase = t.prepare_training_wordbase(min_level, max_level)
 	else:
 		training_wordbase = revision_wordbase
@@ -163,10 +163,10 @@ if __name__ == '__main__':
 		# ask the pinyin and hanzi
 		answer = t.ask_word(word)
 		# check if the aswer was right
-		if t.asker('[+] Hai risposto correttamente? [y/n]'):
-			print('[*] Ottimo!', '\n')
+		if t.asker('[+] Was it correct? [y/n]'):
+			print('[*] Great!', '\n')
 		else:
-			print('[*] Non preoccuparti, farai meglio il prossimo tentativo.', '\n')
+			print('[*] Don\'t worry, you\'ll do better next time.', '\n')
 			t.add_to_revision(word)
 		# remove word from training wordbase
 		t.remove_word(word)
@@ -185,9 +185,9 @@ if __name__ == '__main__':
 			t.review_revision(revision_wordbase)
 			# open file
 			file = open('revision.py', 'w')
-			if t.asker('[+] Vuoi salvare queste parole? [y/n]'):
+			if t.asker('[+] Do you want to save these words? [y/n]'):
 				file.write('revision_wordbase = ' + str(revision_wordbase))
-				print('[*] Hai salvato le parole da approfondire, buono studio!')
+				print('[*] You saved the words to revise, happy study!')
 			else:
 				file.write('')
 			file.close()
