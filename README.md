@@ -22,4 +22,4 @@ For this operation you need to have git installed on your system.
 # How do I use it?
 Navigate to the folder where the file training.py has been downloaded or cloned and type from a Terminal of your choice: 
 
-<pre><code>python3 training.py</code></pre>
+<pre><code>python3 hsk.py</code></pre>
