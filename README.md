@@ -5,20 +5,20 @@ It is just a quick helper to keep in training with the hanzi you have already le
 The wordbase is not complete because I started to learn Chinese not so long ago, but I'm going to update it everytime I make a step forward.
 Have fun!
 
-# What do I need?
+### What do I need?
 You can run this script anywhere, you just need:
 - Terminal (macOS/UNIX-like) / Command Prompt (Windows) / Termux or any other emulator (Android/iOS)
 - Python 3.x 
 - Pen and paper
 
-# How do I get it?
+### How do I get it?
 You can download the script in .zip format from this page or type from a Terminal of your choice: 
 
 <pre><code>git clone https://github.com/manuelpellegrinet/hsk.git</code></pre>
 
 For this operation you need to have git installed on your system.
 
-# How do I use it?
+### How do I use it?
 Navigate to the folder where the file hsk.py has been downloaded or cloned and type from a Terminal of your choice: 
 
 <pre><code>python3 hsk.py</code></pre>
